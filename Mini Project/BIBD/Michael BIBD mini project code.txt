@@ -1,0 +1,53 @@
+SERVER:
+cd C:\Program Files\MongoDB\Server\5.0\bin
+
+mongod
+
+CLIENT:
+cd C:\Program Files\MongoDB\Server\5.0\bin
+
+mongo
+
+show dbs
+
+use Cars
+
+db.carsdata.insertOne({srno: 01, name: "Maruti Suzuki", price: 150000, type: "Car"})
+
+db.carsdata.find().pretty()
+
+db.carsdata.insertMany([
+{srno: 02, name: "BMW",  price: 7500000, type: "SUV"}, 
+{srno: 03,name: "Toyota", price: 1000000, type: "SUV"}, 
+{srno: 04,name: "Skoda", price: 2500000, type: "Car"}, 
+{srno: 05,name: "Hyundai", price: 500000, type: "Car"}, 
+{srno: 06,name: "Volkswagen", price: 800000, type: "SUV"}, 
+{srno: 07,name: "Mercedes", price: 5000000, type: "Car"}
+])
+
+db.carsdata.find().pretty()
+
+db.carsdata.updateOne({name: "BMW"}, {$set:{price: 8000000}})
+
+db.carsdata.find().pretty()
+
+db.carsdata.updateMany({type:"SUV"}, {$set: {price: 1500000}})
+
+db.carsdata.find().pretty()
+
+db.carsdata.replaceOne({name: "Maruti Suzuki"}, {name: "Maruti"})
+
+db.carsdata.find().pretty()
+
+db.carsdata.deleteOne({"price":500000})
+
+db.carsdata.find().pretty()
+
+db.carsdata.deleteMany({type:"Car"})
+
+db.carsdata.find().pretty()
+
+
+
+
+
